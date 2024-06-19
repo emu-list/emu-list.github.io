@@ -284,7 +284,7 @@ main {
   &::after {
     --gradient-clip: calc(var(--image-clip-offset) * 100% - var(--image-outline-width));
 
-    background-image: url("https://assets.codepen.io/197359/kitten-peek-transparent.png"),
+    background-image: url("./kitten-peek-transparent.png"),
       linear-gradient(90deg, var(--color-background) var(--gradient-clip), transparent var(--gradient-clip));
     background-position: 0% calc(50% + var(--spacing));
     background-size: var(--image-width) auto;
