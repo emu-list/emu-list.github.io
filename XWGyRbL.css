@@ -1,0 +1,475 @@
+/* styling for this pen https://codepen.io/giana/pen/gOEQWpR */
+
+:root {
+  /* Sizes */
+  --rhythm: 1.6;
+  --spacing: calc(var(--rhythm) * 1rem);
+  --max-content-width: 90rem;
+  --min-tap-size: 48px;
+
+  /* Colors */
+  --color-purple: oklch(66% 0.2 306);
+  --color-lavender: oklch(70% 0.15 306);
+  --color-pink: oklch(70% 0.15 348);
+  --color-yellow: oklch(85% 0.1 108);
+  --color-cyan: oklch(85% 0.1 190);
+  --color-cyan-light: oklch(88% 0.03 190);
+
+  --color-background: oklch(16% 0.011 248);
+  --color-text: oklch(75% 0.018 248);
+  --color-text-bright: #fff;
+
+  background-color: var(--color-background);
+  color-scheme: dark;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  font-size: clamp(1rem, 0.904rem + 0.481vw, 1.25rem);
+  line-height: var(--rhythm);
+  justify-content: space-between;
+  margin: 0;
+  min-height: 100dvh;
+  position: relative;
+}
+
+body,
+main,
+header {
+  display: flex;
+  gap: var(--spacing);
+  flex-direction: column;
+  position: relative;
+}
+
+main,
+header {
+  align-self: center;
+  max-width: var(--max-content-width);
+  width: 100%;
+}
+
+header {
+  flex: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: var(--spacing);
+  text-align: center;
+  z-index: 100;
+}
+
+main {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Header styles */
+
+.warning {
+  display: none;
+}
+
+.site-navigation {
+  flex: 1;
+}
+
+.nav-list {
+  gap: var(--spacing);
+  margin: 0;
+  padding: 0;
+
+  & li,
+  & a {
+    display: block;
+  }
+
+  & a {
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+  }
+
+  li:first-child,
+  & li:has(.button) {
+    margin-inline-start: auto;
+  }
+
+  & li:has(.button) {
+    margin-inline-end: var(--spacing);
+  }
+}
+
+/* Header page title */
+h1 {
+  border-block: 1px solid transparent; /* alignment with button/links */
+  font-size: 1em;
+  font-weight: 200;
+  line-height: var(--rhythm);
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding-block: 0.25em; /* Match links */
+  white-space: nowrap;
+
+  & span {
+    color: var(--color-text-bright);
+    font-weight: 700;
+  }
+}
+
+/* Section title */
+
+h2 {
+  font-size: clamp(2rem, 1.231rem + 3.846vw, 4rem);
+  font-weight: 200;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin: 0;
+  margin-block-end: var(--spacing);
+
+  & span {
+    color: var(--color-cyan);
+  }
+
+  /* Behold, the lone media query in this entire document */
+  @media (min-width: 40rem) {
+    font-weight: 100;
+  }
+}
+
+a {
+  color: var(--color-text-bright);
+  font-weight: 500;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    color: var(--color-cyan);
+  }
+}
+
+p {
+  margin: 0;
+  margin-block-end: var(--spacing);
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  margin-inline: auto;
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-background);
+    filter: blur(20px);
+    opacity: 0.6;
+  }
+
+  p {
+    margin-block: calc(var(--spacing) / 2);
+    margin-inline: var(--spacing);
+    position: relative;
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+}
+
+:root {
+  /* Background glows */
+  --color-glow-yellow: oklch(98% 0.01 108);
+  --color-glow-teal: oklch(92.73% 0.04 190);
+  --color-glow-pink: oklch(92.73% 0.04 348);
+  --color-glow-blue: oklch(80% 0.04 248);
+  --color-glow-purple: oklch(30% 0.075 306);
+
+  /* --color-text: oklch(96% 0.032 107); */
+
+  /* Kitten image */
+  --image-width: min(265px, 28vw);
+  --image-height: calc(var(--image-width) * 2.1283);
+  --image-clip-offset: 0.15094;
+  --image-outline-width: 1px;
+  --image-outline-color: oklch(70% 0.2 318);
+
+  --image-aware-padding: max(var(--spacing), var(--image-width) * 0.14);
+}
+
+body {
+  padding-block-start: var(--spacing);
+  padding-inline: var(--image-aware-padding);
+
+  /* Background glows */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: color-dodge;
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  /* Top left background glow */
+  &::before {
+    --light-size: 70vmin;
+
+    background-image: radial-gradient(circle at center, var(--color-glow-yellow), black 70%);
+    background-size: var(--light-size) var(--light-size);
+    background-position: calc(50% - min(100vw, var(--max-content-width)) / 2 + 5vw) calc(var(--light-size) / -2 - 2vmin);
+  }
+
+  /* Bottom right background glow */
+  &::after {
+    --light-size: 100vw;
+
+    background-image: radial-gradient(circle at center, var(--color-glow-blue), black 70%);
+    background-size: var(--light-size) var(--light-size);
+    background-position: calc(100% + var(--light-size) / 2 + 2vmin) calc(100% + var(--light-size) / 2 + 2vmin);
+  }
+}
+
+main {
+  &::before,
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Wall */
+  &::before {
+    --background-size: 70vmax;
+    --border-position: calc(var(--image-width) * var(--image-clip-offset) - var(--image-outline-width));
+
+    background-image: radial-gradient(circle at center, var(--color-glow-purple), transparent 70%);
+    background-size: var(--background-size) var(--background-size);
+    background-position: calc(100% + var(--background-size) / 2) 50%;
+
+    border-inline-end: var(--image-outline-width) solid var(--image-outline-color);
+    border-image: linear-gradient(transparent, var(--image-outline-color), transparent) 1%;
+    inset-inline-end: var(--border-position);
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  /* Kitten */
+  &::after {
+    --gradient-clip: calc(var(--image-clip-offset) * 100% - var(--image-outline-width));
+
+    background-image: url("https://assets.codepen.io/197359/kitten-peek-transparent.png"),
+      linear-gradient(90deg, var(--color-background) var(--gradient-clip), transparent var(--gradient-clip));
+    background-position: 0% calc(50% + var(--spacing));
+    background-size: var(--image-width) auto;
+    min-height: calc(var(--image-height) + var(--spacing) * 5);
+    transform: scaleX(-1);
+    z-index: 2;
+  }
+
+  & > * {
+    margin-inline-end: calc(var(--image-width) - var(--image-aware-padding));
+  }
+}
+
+.left-content,
+.right-content {
+  max-width: 50ch;
+  position: relative;
+  z-index: 10;
+}
+
+@property --gradient-start {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: pink;
+}
+
+@property --gradient-end {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: purple;
+}
+
+/* Links */
+
+main a {
+  --gradient-start: var(--color-pink);
+  --gradient-end: var(--color-lavender);
+
+  background-image: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  background-clip: text;
+  color: transparent;
+  transition: --gradient-start 0.5s, --gradient-end 0.5s;
+
+  &:hover,
+  &:focus {
+    --gradient-start: var(--color-cyan);
+    --gradient-end: var(--color-yellow);
+
+    color: transparent;
+  }
+}
+
+.button.button {
+  background: linear-gradient(45deg, var(--color-lavender), var(--color-cyan));
+  border-radius: var(--spacing);
+  border: 1px solid transparent;
+  color: var(--color-background);
+  font-weight: 600;
+  padding-inline: var(--spacing);
+  position: relative;
+  transition: 0.1s;
+
+  &::before,
+  &::after {
+    content: '';
+    border-radius: inherit;
+    transition: 0.25s ease-out;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Gradient shadow */
+  &::before {
+    inset: 0.2em;
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+    opacity: 0;
+    z-index: -1;
+
+    background: linear-gradient(45deg, var(--color-lavender), var(--color-cyan));
+    filter: blur(calc(var(--spacing) / 2)) saturate(2);
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--color-background);
+    border-color: var(--color-lavender);
+    color: var(--color-text-bright);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+    &::before,
+    &::after {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+/* Menu buttons */
+.mobile-menu-button {
+  --width: var(--min-tap-size);
+  --height: var(--min-tap-size);
+
+  --line-thickness: 2px;
+  --line-spacing: 3px;
+
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  inset-inline-end: var(--spacing);
+  width: var(--width);
+  height: var(--height);
+  z-index: 100;
+
+  & input {
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  &::before,
+  &::after {
+    --width: 100%;
+    --height: 100%;
+
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    width: var(--width);
+    height: var(--height);
+  }
+
+  &:hover,
+  &:focus {
+    &::before,
+    &::after {
+      --color-text-bright: var(--color-cyan);
+    }
+  }
+}
+
+.hamburger-icon {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+
+  &::before,
+  &::after {
+    --height: calc(var(--line-thickness) * 3 + var(--line-spacing) * 2);
+
+    inset-block-start: calc(50% - var(--height) / 2);
+  }
+
+  &::before {
+    border-block: var(--line-thickness) solid var(--color-text-bright);
+  }
+
+  &::after {
+    border-block-start: var(--line-thickness) solid var(--color-text-bright);
+    margin-block-start: calc(var(--line-thickness) + var(--line-spacing));
+  }
+}
+
+.close-icon {
+  inset-block-start: calc(var(--spacing) * 2);
+  inset-inline-end: calc(var(--spacing) + var(--image-aware-padding));
+
+  &::before,
+  &::after {
+    --width: 75%;
+    --height: 0;
+
+    border-block-start: var(--line-thickness) solid var(--color-text-bright);
+    transform-origin: 50% 50%;
+    margin-inline: auto;
+    inset-block-start: calc(50% - var(--line-thickness) / 2);
+    inset-inline: 0;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
