@@ -1,0 +1,322 @@
+/*
+The MIT License (MIT)
+
+Copyright (c) 2024 Giana (https://codepen.io/giana/pen/gOEQWpR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+/*
+  The rest of the page styling has been moved to an external pen
+  https://codepen.io/giana/pen/XWGyRbL/
+
+  The styling here demonstrates the scroll animation features
+*/
+
+/* These are specified down below
+  Hoisted the `visibility` up here for ease of debugging */
+.left-content::after,
+.site-navigation::after {
+  background-color: red;
+  z-index: 10000;
+
+  /* Comment out to debug */
+  visibility: hidden;
+}
+
+/*
+  Content swaps between one to two columns based on content-width
+*/
+
+:root {
+  --min-text-width: 34rem;
+  --content-min-width: calc(var(--image-width) + var(--min-text-width) * 2);
+}
+
+main {
+  /* already a flexbox container */
+
+  /* Attach animations and scope */
+  timeline-scope: --content-width;
+  animation: expand-content;
+  animation-timeline: --content-width;
+
+  /* Attach animation timeline to all children */
+  & > *,
+  &::before,
+  &::after {
+    animation-timeline: --content-width;
+  }
+
+  /* Now attach individual animation */
+  &::before {
+    animation-name: wall;
+  }
+
+  &::after {
+    animation-name: kitten;
+  }
+}
+
+/* Swaps to a two-column layout when marker is in-view */
+@keyframes expand-content {
+  0%, 100% {
+    flex-direction: row;
+    align-items: center;
+    max-height: 30rem;
+  }
+}
+
+@keyframes wall {
+  0%, 100% {
+    width: 50%;
+  }
+}
+
+@keyframes kitten {
+  0%, 100% {
+    background-image: url("https://assets.codepen.io/197359/kitten-peek-transparent.png");
+    inset-inline-start: calc(50vw - calc(var(--image-width) * var(--image-clip-offset)));
+    transform: none;
+    width: 50%;
+  }
+}
+
+.left-content {
+  animation-name: main-content;
+
+  /* Content width marker */
+  /* When this is in-view, the animations will trigger */
+  &::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    inset-inline-start: var(--content-min-width);
+
+    width: 1px;
+    height: 50px;
+
+    view-timeline: --content-width inline;
+  }
+}
+
+.right-content {
+  animation-name: main-content, right-content;
+}
+
+@keyframes main-content {
+  0%, 100% {
+    flex: 1;
+    margin-inline-end: 0;
+    margin-block-end: calc(var(--spacing) * 2);
+    max-width: calc(50% - var(--spacing) / 2);
+  }
+}
+
+@keyframes right-content {
+  0%, 100% {
+    align-self: flex-end;
+    padding-inline-start: calc(var(--image-width) - var(--image-width) * var(--image-clip-offset));
+  }
+}
+
+/*
+  Navigation swaps between hidden to expanded when there's enough space
+*/
+
+:root {
+  timeline-scope: --expanded-navigation;
+}
+
+.site-header {
+  overflow: hidden;
+}
+
+/* Navigation */
+.site-navigation {
+  flex-shrink: 0;
+  position: relative;
+  width: max-content;
+  visibility: hidden;
+
+  animation-name: expand-navigation;
+  animation-timeline: --expanded-navigation;
+
+  /* Marker */
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+
+    width: 1px;
+    height: 100%;
+
+    view-timeline: --expanded-navigation inline;
+  }
+}
+
+@keyframes expand-navigation {
+  0%,
+  100% {
+    /* Setting custom props for children */
+    --nav-wrapper-display: block;
+    --nav-wrapper-transform: none;
+    --nav-wrapper-background: transparent;
+
+    visibility: visible;
+  }
+}
+
+/* Navigation list */
+.nav-list {
+  display: flex;
+}
+
+/* Menu button, display:none on large screens */
+.hamburger-icon {
+  animation-name: hide-menu-button;
+  animation-timeline: --expanded-navigation;
+}
+
+@keyframes hide-menu-button {
+  0%,
+  100% {
+    display: none;
+  }
+}
+
+/* Menu close button, display:none unless menu opened */
+.close-icon {
+  display: none;
+  position: fixed;
+  z-index: 100;
+}
+
+/* Open/close animation */
+
+/* Menu styling */
+/* Since the custom props are set inside the animation (which triggers on large screens), the defaults will be used on small screens */
+.navigation-animation-wrapper {
+  background-color: var(--nav-wrapper-background, var(--color-background));
+  display: var(--nav-wrapper-display, flex);
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  transform: var(--nav-wrapper-transform, translateX(100%));
+  z-index: 100;
+}
+
+/* On open */
+
+html:has(.open-navigation:checked) {
+  overflow: hidden;
+
+  /* 
+    expand-navigation is automatically triggered and the element becomes visible
+    due to the properties we are applying that move the marker within the viewport
+  */
+  .navigation-animation-wrapper {
+    background-color: var(--color-background);
+    display: flex;
+    position: fixed;
+    transition: transform 0.25s ease-out; 
+    transform: none;
+    width: 100%;
+  }
+
+  .nav-list {
+    flex-direction: column;
+
+    & li {
+      margin: 0;
+    }
+  }
+
+  .close-icon {
+    display: block;
+  }
+}
+
+/* On close */
+html:has(.close-navigation:checked) {
+  .navigation-animation-wrapper {
+    animation: slide-out 0.25s ease-out;
+  }
+
+  .nav-list {
+    animation: opacity-out 0.25s ease-out;
+  }
+}
+
+/* 
+  Because we're swapping non-animatable properties, we'll use a keyframe animation
+  to first animate the animatable properties while preserving the layout
+  and then, at the last moment, allow the non-animatable properties to swap out
+*/
+
+@keyframes slide-out {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+
+  /* Preserve properties until right before the end */
+  0%, 99% {
+    background-color: var(--color-background);
+    display: flex;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+@keyframes opacity-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+  /* Preserve properties until right before the end */
+  0%, 99% {
+    flex-direction: column;
+  }
+}
+
+@supports not (animation-timeline: view(inline)) {
+  /* Show warning on non-supporting browsers */
+  .warning {
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+    padding-inline: var(--image-aware-padding);
+  }
+
+  /* Smooth menu transition on non-supporting browsers */
+  /* Just because it doesn't work doesn't mean it can't be pretty #me */
+  .site-navigation {
+    transition: 0.25s ease-in-out;
+    visibility: visible;
+  }
+}
