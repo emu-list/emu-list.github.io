@@ -1,29 +1,107 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-  <div class="outer">
-  <div class="dot"></div>
-  <div class="card">
-    <div class="ray"></div>
-    <div class="text">⭐</div>
-    <div>Página en construcción</div><br>
-  <a href="../">	
-    <button>
-    Regresar
-</button>
-</a>
-    <div class="line topl"></div>
-    <div class="line leftl"></div>
-    <div class="line bottoml"></div>
-    <div class="line rightl"></div>
-  </div>
-</div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000">
+    <meta name="description" content="Redes sociales de Retired64 y William Winlator Mobox PC Emuladores." >
+    <meta name="keywords" content="Retired64 Termux, Retired64 Emuladores PC, Willcis Emus Winlator Termux, Willcis Emus Retired64, Tutoriales winlator y mobox, página web de retired64, willcis emus emuladores" >
+    <meta name="author" content="Retired64" >
+<!-- 
+    <meta property="og:title" content="" >
+    <meta property="og:image" content="" >
+    <meta property="og:url" content="" >
+    <meta property="og:site_name" content="" >
+    <meta property="og:description" content="" >
+    <meta name="twitter:title" content="" >
+    <meta name="twitter:image" content="" >
+    <meta name="twitter:url" content="" >
+    <meta name="twitter:card" content="" > -->
 
-  </body>
+    <title>Winlator Mobox Retired64 Willcis | Redes Sociales</title>
+    <link rel="icon" type="image/x-icon" href="./Images/logoemus.webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="blackhole">
+              <div class="blackhole-circle"></div>
+              <div class="blackhole-disc"></div>
+            </div>
+          
+            <div class="curve">
+              <svg viewBox="0 0 500 500">
+                <path id="loading" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"></path>
+                <text width="500">
+                  <textPath xlink:href="#loading">
+                    Cargando...
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+          </div>
+    </div>
+    <div class="BigdaddyContainer">
+        <div class="bg" id="bg"></div>
+        <div class="mainContainer">
+            <div class="profileSection">
+                <img src="./Images/sZWOIw2FQlWub9NMBHwY7Q.jpg" alt="">
+                <h1 class="ProfileHeading">@Retired64</h1>
+                <p class="aboutdescription">&#60;/&#62; Creador del sitio WEB
+                    <br>
+                    @WillcisEmu
+                    <br>
+                    Colaborador Principal
+                </p>
+            </div>
+            <div class="socialsSection">
+                <a href="../" target="_blank" class="portfolio socialbuttons">
+                    <img src="./Images/home.webp" alt="Emuladores Android PC mobox">
+                    <p class="buttonname">Inicio</p>
+                </a>
+
+                <a href="https://youtube.com/@willcis632?si=OsGiMVmOPV9x_vPG" class="uiverse socialbuttons">
+                  <img src="./Images/yt.webp" alt="Willcis canal de Youtube winlator">
+                <p class="buttonname">Willcis Emu</p>  
+              </a>
+              <a href="https://youtube.com/@retired64?si=PZZMQG9zNEzCExr6" class="uiverse socialbuttons">
+                  <img src="./Images/yt.webp" alt="Retired64 canal de Youtube mobox pc">
+                <p class="buttonname">Retired64</p>  
+              </a>
+              
+                <a href="https://github.com/retired64" target="_blank" class="github socialbuttons">
+                    <img src="./Images/git.webp" alt="Winlator Mobox Retired64 Youtube">
+                 <p class="buttonname">Retired64 GitHub</p>   
+                </a>
+               
+                <a href="https://t.me/+ZdZLP0m9IvNiMDYx" class="linkdin socialbuttons" target="_blank">
+                    <img src="./Images/tg.webp" alt="Mobox winlator willcis Telegram invite">
+                  <p class="buttonname">Grupo Telegram</p>  
+                </a>
+            </div>
+            <div class="signatureSection">
+                <img src="./Images/logoemus.webp" alt="Winlator Termux Mobox Emuladores">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./Scripts/index.js"></script>
+<script src="./Scripts/main.js"></script>
+<script>
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", function () {
+    setTimeout(function() {
+        loader.style.display = "none";
+        }, 3000);
+  
+        document.addEventListener("contextmenu", function(e){
+  if (e.target.nodeName === "IMG") {
+      e.preventDefault();
+  }
+}, false);
+
+})
+
+</script>
 </html>

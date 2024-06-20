@@ -337,3 +337,17 @@ html:has(.close-navigation:checked) {
     height: 100%;
     border-radius: 12px; /* Ajusta este valor para que coincida con el contenedor */
 }
+
+.image-container {
+    width: 100%;
+    max-width: 600px; /* Cambia este valor según el ancho máximo deseado */
+    border-radius: 12px; /* Ajusta este valor según lo redondeado que desees */
+    overflow: hidden;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Ajusta este valor para que coincida con el contenedor */
+}
