@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /emuladores/
+Disallow: /private/
+Disallow: /temporal/
+Disallow: /test/
+
+Sitemap: https://emu-list.github.io/sitemap.xml
