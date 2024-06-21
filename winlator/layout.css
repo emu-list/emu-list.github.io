@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #808080;
+    background-color: #1d1f21;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+#wrapper {
+    background: url('../imgs/bg.png') repeat-x #eeeeee;
+    max-width: 100%;
+    overflow: hidden; /* Evita el desbordamiento */
+}
+
+#header {
+    height: 100px;
+    position: relative;
+    text-align: center; /* Centramos el contenido del header */
+}
+
+#logo {
+    margin-top: 6px;
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto;
+}
+
+#menu {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: url('../imgs/bg_menu.png') top;
+    border: 1px solid #01579b;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 0;
+    white-space: nowrap;
+    text-align: center; /* Centramos el menú */
+}
+
+#menu li {
+    display: inline-block;
+    border-left: 1px solid #81d4fa;
+    border-right: 1px solid #01579b;
+}
+
+#menu li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 28px;
+    height: 28px;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 890px; /* Añadimos un ancho máximo */
+    padding: 0 15px; /* Añadimos padding para evitar que el contenido toque los bordes */
+    box-sizing: border-box; /* Incluimos el padding dentro del ancho total */
+    background: #1d1f21;
+}
+
+#content {
+    background: url('../imgs/bg_content.png') repeat-x;
+    min-height: 500px;
+    padding: 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-sizing: border-box; /* Incluimos el padding dentro del ancho total */
+    overflow: hidden; /* Evita el desbordamiento */
+    background: #1d1f21;
+}
+
+.welcome {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #373737;
+}
+
+.message {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #979797;
+}
+
+.download_panel {
+    padding: 10px;
+    margin-top: 15px;
+    color: #333333;
+    background: #1d1f21;
+    border-top: 1px solid #D4D4D4;
+    border-bottom: 1px solid #D4D4D4;
+    overflow: hidden;
+    text-align: left;
+    box-sizing: border-box; /* Incluimos el padding dentro del ancho total */
+}
+
+.latest_version {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.download_button {
+    float: right;
+    margin-top: 8px;
+}
+
+.credits_third_party_apps {
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: bold;
+    color: #373737;
+    text-align: left;
+}
+
+.list {
+    font-size: 20px;
+    text-align: left;
+    color: #979797;
+}
+
+#footer {
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+    background: #455a64;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #0288d1;
+    text-decoration: none;
+}
+
+hr {
+    border-bottom: 2px solid #dfdfdf;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    height: 1px;
+    clear: both;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+a {
+    color: #607d8b;
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+@media screen and (max-width: 890px) {
+    #container {
+        width: auto;
+    }
+    
+    #header {
+        text-align: center;
+    }
+    
+    #logo {
+        height: 78px;
+        margin-bottom: 8px;
+    }   
+    
+    #menu {
+        right: 0;
+    }
+    
+    #menu li {
+        width: 33%;
+    }   
+    
+    .download_panel {
+        text-align: center;
+    }
+    
+    .download_button {
+        margin-top: 8px;
+        float: none;
+    }
+}
+body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace; /* Fuente de terminal */
+            font-size: 1rem; /* Ajuste de fuente */
+            color: #c5c8c6; /* Texto claro */
+            background: #1d1f21; /* Fondo oscuro */
+        }

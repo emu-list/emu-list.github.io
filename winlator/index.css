@@ -1,0 +1,155 @@
+/* Global Styles */
+body {
+    background-color: #1d1f21; /* Fondo oscuro para un look de terminal */
+    font-family: 'Courier New', Courier, monospace; /* Fuente de terminal */
+    color: #c5c8c6; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    font-size: 1.25rem; /* Ajuste de fuente para adaptabilidad */
+    margin-bottom: 2rem;
+    color: #b5bd68; /* Color verde hacker */
+}
+
+.welcome {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #8abeb7; /* Color azul claro */
+    text-shadow: 1px 1px 2px #000; /* Sombra para resaltar */
+}
+
+.download_panel {
+    padding: 1rem; 
+    margin-top: 1.5rem; 
+    color: #c5c8c6; 
+    background: #282a2e; /* Fondo oscuro */
+    border-top: 1px solid #373b41; 
+    border-bottom: 1px solid #373b41; 
+    overflow: hidden;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.download_panel .latest_version {
+    font-size: 1.125rem; /* Ajuste de fuente */
+    font-style: italic; 
+    font-weight: bold;
+    color: #de935f; /* Color anaranjado */
+}
+
+.download_button {
+    float: right;
+    
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #1d1f21; /* Texto oscuro para contraste */
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download_button {
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.download_button img {
+    display: block;
+}
+
+.download_button:hover {
+    background-color: #5f819d; /* Cambio de color al hover */
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.download_button img:hover {
+    filter: brightness(1.1);
+}
+
+
+
+
+.credits_third_party_apps {
+    font-size: 1.25rem; /* Ajuste de fuente */
+    margin-top: 3rem;
+    font-weight: bold;
+    color: #8abeb7;
+    text-align: left;
+    text-shadow: 1px 1px 2px #000; /* Sombra para resaltar */
+}
+
+.list {
+    font-size: 1.25rem; /* Ajuste de fuente */
+    text-align: left;
+    color: #b5bd68;	
+}
+
+@media screen and (max-width: 890px) {
+    .download_panel {
+        text-align: center;
+    }
+    
+    .download_button {
+        margin-top: 0.5rem;
+        float: none;
+    }
+}
+
+/* Additional Styling for Gaming/Hacker Feel */
+.terminal {
+    background-color: #1d1f21; /* Fondo oscuro de terminal */
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px #000; /* Sombra para dar efecto de pantalla */
+    color: #c5c8c6; /* Texto claro */
+}
+
+.terminal-header {
+    background-color: #282a2e; /* Fondo de encabezado */
+    padding: 0.5rem;
+    border-radius: 5px 5px 0 0;
+    font-size: 1rem;
+    color: #c5c8c6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-header .buttons {
+    display: flex;
+}
+
+.terminal-header .button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.terminal-header .button.red {
+    background-color: #ff5f56;
+}
+
+.terminal-header .button.yellow {
+    background-color: #ffbd2e;
+}
+
+.terminal-header .button.green {
+    background-color: #27c93f;
+}
+
+.terminal-body {
+    background-color: #1d1f21;
+    padding: 1rem;
+    color: #c5c8c6;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border-radius: 0 0 10px 10px;
+}
