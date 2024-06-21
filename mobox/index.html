@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal de Comandos</title>
+
+<style>
+/* Estilo base */
+#menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#menu li {
+    margin: 10px 0;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #ffa4e0;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #87344b;
+    border: 2px solid green;
+    transition: all 0.3s ease;
+}
+
+/* Animación al hacer hover */
+#menu li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Animación al hacer clic */
+#menu.show {
+    display: block;
+    animation: slideDown 0.5s ease;
+}
+
+/* Animación de deslizamiento hacia abajo */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    #menu li a {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #87344b;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 0;
+    color: #87344b;
+}
+
+.menu li a {
+    color: #87344b;
+    text-decoration: none;
+}
+
+.main {
+    padding: 20px;
+}
+
+.terminal {
+    background-color: #000;
+    color: #00ff00;
+    padding: 50px;
+}
+
+.terminal-content {
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .terminal {
+    border: 2px solid #0f0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 200px; /* Ajustar según sea necesario */
+    margin-bottom: 20px; /* Agrega un espacio entre los bloques */
+  }
+
+  .input-line {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #0a0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* Estilos específicos para dispositivos móviles */
+    .terminal {
+      max-height: none;
+    }
+  }
+
+
+/**/
+
+.togge {
+  --text-base: 277deg, 55%, 40%;
+  --text-hover: 307deg, 72%, 86%;
+  --shadow-start: 52deg, 100%, 72%;
+  --shadow-end: 282deg, 90%, 50%;
+  --shadow-inner: 277deg, 90%, 62%;
+  all: unset;
+  color: hsla(var(--text-base), 1);
+  font: 700 1.125rem/1.2 Raleway, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.85em;
+  max-width: 100%;
+  width: 12em;
+  text-align: center;
+  background: inherit;
+  background-clip: padding-box;
+  border: 5px solid hsla(var(--text-base), 1);
+  border-radius: 2em;
+  cursor: pointer;
+  position: relative;
+  transition: 0.25s ease-out;
+}
+.togge::before, .togge::after {
+  content: "";
+  border-radius: inherit;
+  transition: inherit;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.togge::before {
+  inset: -0.2em;
+  z-index: -1;
+  background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+  filter: blur(1.2em) saturate(1.2);
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+  opacity: 0;
+}
+.togge::after {
+  box-shadow: inset 0 0 0 1px #fff, 0 0 0 4px rgba(255, 255, 255, 0.7), 1px 1px 0 4px #fff;
+  mix-blend-mode: overlay;
+  opacity: 0;
+}
+.togge:hover, .togge:focus {
+  color: hsla(var(--text-hover), 1);
+  border-color: transparent;
+  box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), 0 1px 1px hsla(var(--shadow-inner), 0.32);
+}
+.togge:hover::before, .togge:hover::after, .togge:focus::before, .togge:focus::after {
+  transform: none;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+    <main>
+        <section class="terminal">
+            <div class="terminal-content">
+                <h1>Instalación <span style="color: cyan;">mobox</span></h1>
+                <p>Aquí hay alguno de los contenedores wine personalizados adaptados para <span style="color: cyan;"><b>mobox</b></span>.</p><br>
+                <a href="#" class="btn">Ver video</a>
+            </div>
+        </section>
+
+        <section class="content">
+            <h2>¿Para que sirven?</h2>
+            <p>Los Custom Wine Box86 (WOW64) son una herramienta que permite ejecutar aplicaciones de Windows en sistemas Linux basados en arquitectura x86 de 64 bits. Mejorando el rendimiento y FPS de manera satisfactoria</p>
+        </section>
+    </main>
+
+<h1>INSTALAR MOBOX</h1>
+<p>Copiar este comando en termux para iniciar con su descarga <b>Descargar Termux</b></p>
+<div class="terminal">
+  <div class="input-line">
+    <p id="myText1">curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && . ~/x</p>
+  </div>
+  <button class="btn" onclick="copyContent('myText1')">Copiar</button>
+</div>
+<!--
+<div class="terminal">
+  <div class="input-line">
+    <p id="myText2">Otro código aquí...</p>
+  </div>
+  <button class="btn" onclick="copyContent('myText2')">Copy!</button>
+</div>
+
+<div class="terminal">
+  <div class="input-line">
+    <p id="myText3">Otro código aquí...</p>
+  </div>
+  <button class="btn" onclick="copyContent('myText3')">Copy!</button>
+</div>
+-->
+<script>
+  const copyContent = async (id) => {
+    let text = document.getElementById(id).innerHTML;
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+</script>
+</body>
+</html>
