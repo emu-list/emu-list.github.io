@@ -4,4 +4,4 @@ Disallow: /private/
 Disallow: /temporal/
 Disallow: /test/
 
-Sitemap: https://emu-list.github.io/sitemap.xml
+Sitemap: https://winlatormobox.xyz/sitemap.xml
