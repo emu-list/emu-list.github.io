@@ -4,39 +4,39 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://emu-list.github.io/</loc>
+        <loc>https://winlatormobox.xyz/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://emu-list.github.io/listas/</loc>
+        <loc>https://winlatormobox.xyz/listas/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://emu-list.github.io/redessociales/</loc>
+        <loc>https://winlatormobox.xyz/redessociales/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://emu-list.github.io/noticias/</loc>
+        <loc>https://winlatormobox.xyz/noticias/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://emu-list.github.io/mobox/</loc>
+        <loc>https://winlatormobox.xyz/mobox/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://emu-list.github.io/winlator/</loc>
+        <loc>https://winlatormobox.xyz/winlator/</loc>
         <lastmod>2024-06-21T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
+        <priority>1.0</priority>
     </url>
 </urlset>
