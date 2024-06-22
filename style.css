@@ -351,3 +351,13 @@ html:has(.close-navigation:checked) {
     height: auto;
     border-radius: 12px; /* Ajusta este valor para que coincida con el contenedor */
 }
+
+.linea {
+    border: 1px solid purple; /* Añade un borde de 1px sólido de color negro */
+    padding: 5px; /* Añade un relleno (padding) de 10px a todos los lados */
+}
+html {
+      scroll-behavior: smooth;
+}
+
+
