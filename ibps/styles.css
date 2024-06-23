@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    border-bottom: 2px solid #ff0000;
+}
+
+.logo {
+    max-width: 100px;
+    border: 2px solid #00f;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.search-container {
+    text-align: center;
+    margin: 20px;
+}
+
+#search-input {
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #292929;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.descargas-section {
+    width: 100%;
+    max-width: 800px;
+}
+
+.descarga-item {
+    background-color: #292929;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ff0000;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.descarga-item.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.descargar-btn {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.descargar-btn:hover {
+    background-color: #cc0000;
+}
+
+.oswald-bold {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.oswald-medium {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    color: #ff0000;
+}
+
+.kanit-regular {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+}
+
+/* Estilos adicionales para un efecto de transición */
+.descarga-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.descarga-item.show {
+    opacity: 1;
+    transform: scale(1);
+}
