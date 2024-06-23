@@ -1,4 +1,4 @@
-Vamos a actualizar tu script Python para que permita agregar múltiples categorías a cada `div`. Aquí está la versión actualizada del script:
+
 
 ```python
 import html
